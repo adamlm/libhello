@@ -1,0 +1,6 @@
+option(libhello_BUILD_TESTS "Build tests" ${PROJECT_IS_TOP_LEVEL})
+option(libhello_BUILD_DOCS "Build documentation" ${PROJECT_IS_TOP_LEVEL})
+option(libhello_BUILD_EXAMPLES "Build examples" ${PROJECT_IS_TOP_LEVEL})
+option(libhello_BUILD_PACKAGING "Build packaging" ${PROJECT_IS_TOP_LEVEL})
+option(libhello_BUILD_INSTALL "Build CMake install targets" ${PROJECT_IS_TOP_LEVEL})
+option(libhello_EXPORT_COMPILE_COMMANDS "" ${PROJECT_IS_TOP_LEVEL})
