@@ -24,7 +24,7 @@ by itself as a standalone project.  You can use `FetchContent` or [CPM](https://
 incorporate `libhello` into your project. There are several CMake customization options listed in the table below. You
 can also find them in the `options.cmake` file.
 
-## Dependencies
+### Dependencies
 
 The library depends only on [{fmt}](https://fmt.dev/latest/index.html) (a modern formatting library), which gets
 included as a source dependency through CPM. You can see `libhello`'s dependencies in the `dependencies.cmake` file.
@@ -54,6 +54,36 @@ For building the library with the default options, follow these steps:
    ```shell
    $ cmake --install build --prefix=<install_path>  # Install to custom location
    ```
+
+### Packaging
+
+The Hello Library uses CPack to generate different packaging formats. To build a Debian package (`.deb` file), for
+example, follow these step:
+
+1. Configure the CMake project
+
+   ```shell
+   $ cmake -B build . -DCMAKE_BUILD_TYPE=Release
+   ```
+   
+2. Change directories (`cd`) into the project's binary directory (`build`)
+
+   ```shell
+   $ cd build
+   ```
+
+3. Execute CPack and specify the Debian package generator (the `-G "DEB"` flag)
+
+   ```shell
+   $ cpack -G "DEB"
+   ```
+   
+The generated package file should be located at `libhello/build/libhello-0.1.0-Linux.deb`. You can now install
+`libhello` through `apt` using
+
+```shell
+$ sudo apt install ./libhello-0.1.0-Linux.deb 
+```
 
 ### Project CMake options
 
